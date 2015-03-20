@@ -3,23 +3,23 @@
     class Stylist
 {
     private $id;
-    private $name;
-    function __construct($name, $id = null)
+    private $person;
+    function __construct($person, $id = null)
 
     {
-        $this->name = $name;
+        $this->person = $person;
         $this->id = $id;
 
     }
 
-    function setName($new_name)
+    function setPerson($new_client)
     {
-        $this->name = (string) $new_name;
+        $this->person = (string) $new_client;
     }
 
-    function getName()
+    function getPerson()
     {
-        return $this->name;
+        return $this->person;
     }
 
     function setId($new_id)
@@ -32,7 +32,12 @@
         return $this->id;
     }
 
-
+    function save()
+    {
+        $statement = $GLOBALS['DB']->query("INSERT INTO  client (name) VALUES ('{$this->getPerson()}')RETURNING id; ");
+        $result    = $statement->fetch(PDO::FETCH_ASSOC);
+        $this->setId($result['id']);
+    }
 }
 
 
