@@ -34,11 +34,23 @@
 
     function save()
     {
-        $statement = $GLOBALS['DB']->query("INSERT INTO  client (name) VALUES ('{$this->getPerson()}')RETURNING id; ");
+        $statement = $GLOBALS['DB']->query("INSERT INTO  name (person) VALUES ('{$this->getPerson()}')RETURNING id; ");
         $result    = $statement->fetch(PDO::FETCH_ASSOC);
         $this->setId($result['id']);
     }
+
+    static function getAll()
+    {
+      $returned_stylist = $GLOBALS['DB']->query("SELECT * FROM name;");
+      $stylists         = array();
+      foreach ($returned_stylist as $stylist) {
+          $id          = $stylist['id'];
+          $person        = $stylist['person'];
+          $new_stylist = new Stylist($person, $id);
+          array_push($stylists, $new_stylist);
+    }
+      return $stylists;
 }
 
-
+}
 ?>

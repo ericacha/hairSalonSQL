@@ -7,7 +7,7 @@
 
      require_once "src/Stylist.php";
 
-    //  $DB = new PDO('pgsql:host=localhost;dbname=hair_salon_test');
+     $DB = new PDO('pgsql:host=localhost;dbname=hair_salon_test');
 
 
      class StylistTest extends PHPUnit_Framework_TestCase
@@ -71,15 +71,33 @@
         //Arrange
         $person = "Monica";
         $id = null;
-        $test_Stylist = new Stylist($person, $id);
+        $test_stylist = new Stylist($person, $id);
 
         //Act
-        $test_Stylist->save();
+        $test_stylist->save();
         $result = Stylist::getAll();
 
         //Assert
-        $this->assertEquals($test_Stylist, $result[0]);
+        $this->assertEquals($test_stylist, $result[0]);
         }
+
+        function test_getAll()
+        {
+        //Arrange
+        $person = "Monica";
+        $id = null;
+        $person2 = "Tracie";
+        $id2 = null;
+        $test_Stylist = new Stylist($person, $id);
+        $test_Stylist->save();
+        $test_Stylist2 = new Stylist($person2, $id2);
+        $test_Stylist2->save();
+        //Act
+        $result = Stylist::getAll();
+        //Assert
+        $this->assertEquals([$test_Stylist, $test_Stylist2], $result);
+        }
+
 
 
 
