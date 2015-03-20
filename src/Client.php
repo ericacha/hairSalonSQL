@@ -65,7 +65,7 @@ class Client
       static function find($id_search)
       {
       $found_id = null;
-      $ids      = CLient::getAll();
+      $ids = CLient::getAll();
       foreach ($ids as $id) {
           $rest_id = $id->getId();
           if ($rest_id == $id_search) {
