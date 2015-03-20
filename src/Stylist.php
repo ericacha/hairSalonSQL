@@ -17,7 +17,7 @@
         $this->name = (string) $new_name;
     }
 
-    funtion getName()
+    function getName()
     {
         return $this->name;
     }
