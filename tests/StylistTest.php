@@ -51,6 +51,18 @@
             $this->assertEquals(1, $result);
         }
 
+        function test_setId()
+        {
+            //Arrange
+            $name = "Italian";
+            $id = null;
+            $test_id = new Stylist($name, $id);
+            //Act
+            $test_id->setId(1);
+            //Assert
+            $result = $test_id->getId();
+            $this->assertEquals(1, $result);
+        }
 
 }
 ?>
