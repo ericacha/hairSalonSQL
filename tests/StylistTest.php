@@ -26,6 +26,17 @@
             $this->assertEquals($name, $result);
         }
 
-
+        function test_setName()
+        {
+            //Arrange
+            $name = "Monica";
+            $id = null;
+            $test_Stylist = new Stylist($name, $id);
+            //Act
+            $test_Stylist->setName("Stacy");
+            //Assert
+            $result = $test_Stylist->getName();
+            $this->assertEquals("Stacy", $result);
+        }
 }
 ?>
