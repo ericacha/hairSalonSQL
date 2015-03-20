@@ -7,14 +7,14 @@ The owner should be able to add a list of their stylists, and for each stylist, 
 
 Technology
 
-PHP
-Silex
-Twig
-PostgreSQL
-PHPUnit
-Test Driven Development
-Composer
-License
+PHP<br>
+Silex<br>
+Twig<br>
+PostgreSQL<br>
+PHPUnit<br>
+Test Driven Development<br>
+Composer<br>
+License<br>
 
 The MIT License (MIT)
 
